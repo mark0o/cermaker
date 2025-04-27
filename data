@@ -1,0 +1,216 @@
+      <style>
+      @font-face {
+        font-family: "MyriadPro";
+        font-weight: normal;
+        src: url("../src/fonts/MyriadPro-Regular.ttf") format("truetype");
+      }
+      @font-face {
+        font-family: "MyriadPro";
+        font-weight: bold;
+        src: url("../src/fonts/MyriadPro-Bold.ttf") format("truetype");
+      }
+
+      body {
+        all: unset;
+        background-color: #fff;
+        font-family: MyriadPro, sans-serif;
+        display: block;
+        width: 21cm;
+        height: fit-content;
+        padding: 2.4cm 2.6cm 0.5cm 2.6cm;
+        font-size: 0.5cm;
+      }
+    </style>
+  <section>
+      <!--First page-->
+      <h1 style="font-size: 0.75cm; margin: 0; text-transform: uppercase">
+        ${nazevTestu}
+      </h1>
+      <hr style="margin-bottom: 0.4cm; border-top: 1px solid #000" />
+      <div style="display: flex">
+        <span style="width: 50%; padding-right: 3mm">
+          <div
+            style="
+              font-size: 0.5cm;
+              font-weight: bold;
+              margin-bottom: 0.7cm;
+              text-transform: uppercase;
+            "
+          >
+            TEST
+          </div>
+          <b style="display: block; font-size: 0.415cm">Počet úloh: ${pocetUloh}</b>
+          <b style="display: block; font-size: 0.415cm"
+            >Maximální bodové hodnocení: ${maxBodu} bodů</b
+          >
+          <b style="display: block; font-size: 0.415cm">Povolené pomůcky: ${povolenePomucky}</b>
+        </span>
+        <span style="width: 50%">
+          <div>Jméno a příjmení</div>
+          <div
+            style="border: 0.3mm solid #000000; height: 1.1cm; margin-top: 1mm"
+          ></div>
+        </span>
+      </div>
+      <hr style="margin-bottom: 0.4cm; border-top: 1px solid #000" />
+      <style>
+        .number {
+          border: 0.3mm solid #000000;
+          position: absolute;
+          font-weight: bold;
+          padding: 0.5mm;
+        }
+        .point {
+          position: absolute;
+          padding: 0.5mm;
+          transform: translateY(-0.1cm);
+        }
+        .moved {
+          transform: translateX(0.6cm);
+          width: calc(100% - 1.2cm - 0.3cm);
+          display: block;
+          margin-bottom: 1mm;
+        }
+      </style>
+      <div style="display: flex; font-size: 0.415cm">
+        <span style="width: 50%">
+          <span class="number" style="transform: translateY(-0.1cm)">1</span>
+          <span
+            class="moved"
+            style="
+              text-decoration: underline;
+              font-weight: bold;
+              margin-bottom: 3mm;
+            "
+          >
+            Základní informace k zadání zkoušky
+          </span>
+          <div class="point">⦁</div>
+          <div class="moved">
+            <b>Časový limit</b> pro řešení testu
+            <b>je uveden na záznamovém archu</b>.
+          </div>
+          <div class="point">⦁</div>
+          <div class="moved">U každé úlohy je uveden maximální počet bodů.</div>
+          <div class="point">⦁</div>
+          <div class="moved">
+            Za neuvedené řešení úlohy či za nesprávné řešení úlohy jako celku
+            <b>se neudělují záporné body</b>.
+          </div>
+          <div class="point">⦁</div>
+          <div class="moved"><b>Odpovědi pište do záznamového archu.</b></div>
+          <div class="point">⦁</div>
+          <div class="moved">
+            Poznámky si můžete dělat do testového sešitu, nebudou však předmětem
+            hodnocení.
+          </div>
+          <div class="point">⦁</div>
+          <div class="moved">
+            <b
+              >Nejednoznačný nebo nečitelný zápis odpovědi bude považován za
+              chybné řešení.</b
+            >
+          </div>
+          <span class="number" style="transform: translateY(0.3cm)">2</span>
+          <span
+            class="moved"
+            style="
+              text-decoration: underline;
+              font-weight: bold;
+              margin-top: 0.5cm;
+              margin-bottom: 3mm;
+            "
+          >
+            Pravidla správného zápisu odpovědí
+          </span>
+          <div class="point">⦁</div>
+          <div class="moved">
+            Odpovědi zaznamenávejte <b>modře nebo černě</b> píšící propisovací
+            tužkou, která piše <b>dostatečně silné a nepřerušovaně</b>.
+          </div>
+          <div class="point">⦁</div>
+          <div class="moved">
+            <b>Hodnoceny budou pouze odpovědi uvedené v záznamovém archu.</b>
+          </div>
+          <span class="number" style="transform: translateY(0.3cm)">2.1</span>
+          <span
+            class="moved"
+            style="
+              text-decoration: underline;
+              font-weight: bold;
+              margin-top: 0.5cm;
+              margin-bottom: 3mm;
+              transform: translateX(1cm);
+            "
+          >
+            Pokyny k uzavřeným úlohám
+          </span>
+          <div class="point">⦁</div>
+          <div class="moved">
+            U všech úloh/podúloh <b>je právě jedna odpověď správná</b>.
+          </div>
+          <div class="point">⦁</div>
+          <div class="moved">
+            Odpověď na úlohu/podúlohu zřetelně zakřížkujte v příslušném bílém
+            poli záznamového archu, a to přesně z rohu do rohu dle obrázku.
+          </div>
+          <img
+            src="data:image/png;base64,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"
+            style="width: 3.6cm"
+            class="moved"
+          />
+        </span>
+        <span
+          style="width: 50%; border-left: 0.3mm solid #000; padding-left: 1cm"
+        >
+          <div class="point">⦁</div>
+          <div class="moved">
+            Pokud budete chtít následně zvolit jinou odpověď, pečlivě zabarvěte
+            původné zakřížkované pole a zvolenou odpověd vyznačte křížkem do
+            nového pole.
+          </div>
+          <img
+          />
+          <div class="point">⦁</div>
+          <div class="moved">
+            Jakýkoli jiný způsob záznamu odpovědí a jejich oprav bude považován
+            za nesprávnou odpověď.
+          </div>
+
+          <span class="number" style="transform: translateY(0.3cm)">2.2</span>
+          <span
+            class="moved"
+            style="
+              text-decoration: underline;
+              font-weight: bold;
+              margin-top: 0.5cm;
+              margin-bottom: 3mm;
+              transform: translateX(1cm);
+            "
+          >
+            Pokyny k otevřeným úlohám
+          </span>
+          <div class="point">⦁</div>
+          <div class="moved">
+            Odpovědi <b>pište čitelně</b> do vyznačených bílých polí.
+          </div>
+          <img
+            dílčí odpověď. Maximální dosažitelné bodové hodnocení za úlohu se
+            sníží o započítané chyby.
+          </div>
+        </span>
+      </div>
+      <hr style="margin-bottom: 0.2cm; border-top: 1px solid #000" />
+      <div
+        style="
+          text-transform: uppercase;
+          font-weight: bold;
+          text-align: center;
+          font-size: 0.55cm;
+        "
+      >
+        Testový sešit neotvírejte, počkejte na pokyn!
+      </div>
+      <hr style="margin-top: 0.2cm; border-top: 1px solid #000" />
+
+    </section>
