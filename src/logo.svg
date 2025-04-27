@@ -1,11 +1,11 @@
 <svg width="566" height="566" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden">
   <g>
     <rect x="0" y="0" width="1280" height="720" fill="#FFFFFF"/>
-    <rect x="0" y="0" width="566" height="566" fill="#005387"/>
+    <rect x="0" y="0" width="566" height="566" fill="#6EBF00"/>
     <text fill="#FFFFFF" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="128" transform="translate(33 99)">cer</text>
     <text fill="#FFFFFF" font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="128" transform="translate(33 206)">maker</text>
-    <rect x="265" y="411" width="146" height="155" fill="#5481A8"/>
-    <rect x="411" y="265" width="155" height="146" fill="#5481A8"/>
-    <rect x="411" y="411" width="155" height="155" fill="#BEC8D2"/>
+    <rect x="265" y="411" width="146" height="155" fill="#90CC4A"/>
+    <rect x="411" y="265" width="155" height="146" fill="#90CC4A"/>
+    <rect x="411" y="411" width="155" height="155" fill="#CDDDBE"/>
   </g>
 </svg>
