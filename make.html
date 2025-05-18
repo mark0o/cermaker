@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Cermaker je nástroj pro tvorbu testů, podobající se cermat testům. Tento styl testů pomáhá studentům se seznámit s tím, jak cermat testy vypadají, a zárověň snížit stres při ostrých zkouškách."
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="src/logo.ico" type="image/x-icon" />
+    <title>Cermaker</title>
+  </head>
+  <body>
+    <img src="src/logo.svg" alt="Logo" class="logo" />
+    <div class="container">
+      <button onclick="goHome()" id="create-project">Zpět domů</button>
+      <button onclick="exportProject()" id="export-project">Exportovat</button>
+      <h1 contenteditable="" spellcheck="false" style="margin-bottom: 0.2em">
+        Nepojmenovaný test
+      </h1>
+
+      <div style="color: #454545; margin-bottom: 1em">
+        Klepnutím upravíte název
+      </div>
+
+      <div style="margin-bottom: 1em">
+        <div>
+          <span style="font-weight: bold">Počet úloh:</span>
+          <span id="pocetUloh"></span>
+        </div>
+        <div>
+          <span style="font-weight: bold">Celkem bodů:</span>
+          <span id="celkemBodu"></span>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 1em">
+        <h3>Povolené pomůcky</h3>
+        <label>
+          <input
+            type="checkbox"
+            id="writing-tools"
+            checked
+            onchange="updateTools()"
+          />
+          Psací pomůcky
+        </label>
+        <label>
+          <input type="checkbox" id="drawing-tools" onchange="updateTools()" />
+          Rýsovací pomůcky
+        </label>
+        <label>
+          <input type="checkbox" id="calculator" onchange="updateTools()" />
+          Kalkulačka
+        </label>
+        <label>
+          <input type="checkbox" id="internet" onchange="updateTools()" />
+          Internet
+        </label>
+        <label>
+          <input type="checkbox" id="book" onchange="updateTools()" />
+          Učebnice
+        </label>
+        <label>
+          <input type="checkbox" id="notebook" onchange="updateTools()" />
+          Sešit
+        </label>
+        <label>
+          <input type="checkbox" id="other" onchange="updateTools()" />
+          Jiné
+        </label>
+      </div>
+
+      <div
+        class="questions"
+        ondragover="allowDrag(event)"
+        ondrop="dropQuestion(event)"
+      >
+        <!-- Questions will be dynamically added here -->
+      </div>
+    </div>
+
+    <div class="sticky-bar">
+      <b>Přidat:</b>
+      <a href="#" class="text-link" onclick="addABCDQuestion()">ABCD</a>
+      <a href="#" class="text-link" onclick="addAnoNeQuestion()">ANO-NE</a>
+      <a href="#" class="text-link" onclick="addPrirazovaniQuestion()"
+        >Přiřazení</a
+      >
+      <a href="#" class="text-link" onclick="addOpenQuestion()"
+        >Otevřená úloha</a
+      >
+      <a href="#" class="text-link" onclick="addDefaultTextCard()"
+        >Výchozí text</a
+      >
+    </div>
+    <script src="make.js"></script>
+    <script src="export.js"></script>
+    <script>
+      function allowDrag(event) {
+        event.preventDefault();
+      }
+
+      function dragQuestion(event) {
+        event.dataTransfer.setData("text/plain", event.target.dataset.index);
+      }
+
+      function dropQuestion(event) {
+        event.preventDefault();
+        const draggedIndex = event.dataTransfer.getData("text/plain");
+        const targetIndex =
+          event.target.closest(".question-card")?.dataset.index;
+
+        if (
+          draggedIndex !== undefined &&
+          targetIndex !== undefined &&
+          draggedIndex !== targetIndex
+        ) {
+          const projectIndex = getQueryParam("projectIndex");
+          if (projectIndex !== null) {
+            let projects = loadProjects();
+            const questions = projects[projectIndex].questions;
+
+            const [draggedQuestion] = questions.splice(draggedIndex, 1);
+            questions.splice(targetIndex, 0, draggedQuestion);
+
+            saveProjects(projects);
+            displayQuestions();
+          }
+        }
+      }
+
+      function exportProject() {
+        exportTest();
+      }
+    </script>
+
+    <script src="feedback.js"></script>
+  </body>
+</html>
